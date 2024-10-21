@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="dist/css/styles.css" rel="stylesheet" />
+    <title>Crafty-feed</title>
+  </head>
+  <header>
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+      <a class="navbar-brand ms-2" href="index.html">Crafty</a>
+      <div>
+        <a class="navbar-brand menu-items ms-2" href="feed.html">Feed</a>
+        <a class="navbar-brand menu-items ms-2" href="profile.html">
+          Profile
+        </a>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div class="container mt-4">
+      <div class="row m-4">
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search posts..."
+          />
+        </div>
+        <div class="row">
+          <div class="col-md-3 d-flex justify-content-center">
+            <div class="btn btn-primary btn-lg mt-4">Help wanted</div>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <div class="btn btn-primary btn-lg mt-4">Looking for work</div>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <div class="btn btn-primary btn-lg mt-4">General info</div>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <div class="btn btn-primary btn-lg mt-4">Humour</div>
+          </div>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/Electricianworking.jpg"
+              class="card-img-top"
+              alt="Post Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Help Wanted</h5>
+              <p class="card-text text-truncate">
+                Looking for an electrician to help with a small project.
+              </p>
+              <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/CarpentermakerWorking.jpg"
+              class="card-img-top"
+              alt="Help Wanted Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Help Wanted</h5>
+              <p class="card-text text-truncate">
+                Need a carpenter to build custom cabinets. Experience required.
+              </p>
+              <a href="#" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/Worker6.jpg"
+              class="card-img-top"
+              alt="Looking for Work Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Looking for Work</h5>
+              <p class="card-text text-truncate">
+                Certified electrician with 10 years of experience. Available for
+                new projects.
+              </p>
+              <a href="#" class="btn btn-primary">Contact Me</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/Manonladder.jpg"
+              class="card-img-top"
+              alt="General Info Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">General Info</h5>
+              <p class="card-text text-truncate">Stay safe on the job!</p>
+              <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/Drill.jpg"
+              class="card-img-top"
+              alt="Humor Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Humor</h5>
+              <p class="card-text text-truncate">
+                When your drill battery dies right in the middle of the job...
+              </p>
+              <a href="#" class="btn btn-primary">Laugh With Us</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="card card-post mb-4">
+            <img
+              src="images/Womanpowertool.jpg"
+              class="card-img-top"
+              alt="Discussions Thumbnail"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Discussions</h5>
+              <p class="card-text text-truncate">
+                What's the best brand of tools for heavy-duty construction?
+              </p>
+              <a href="#" class="btn btn-primary">Join the Discussion</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h4>Create a New Post</h4>
+        <form>
+          <span class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Title"
+              required
+            />
+          </span>
+          <label for="upload">upload media</label>
+          <input
+            type="file"
+            id="upload"
+            name="upload"
+            accept="image/png, image/jpeg"
+          />
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Post content"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
