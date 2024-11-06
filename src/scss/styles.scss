@@ -25,12 +25,17 @@ body {
   &-brand-text {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
+    color: map-get($colours, accent);
   }
 }
 
 .menu-items {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
+
+  &-active {
+    text-decoration: underline;
+  }
 }
 
 .profile-img {
@@ -63,6 +68,13 @@ ul {
 
   &-post {
     min-height: 26em;
+
+    img {
+      height: 15em;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
   }
 
   &-user {

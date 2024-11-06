@@ -18,44 +18,54 @@
       rel="stylesheet"
     />
     <link href="dist/css/styles.css" rel="stylesheet" />
-    <title>Crafty-login</title>
+    <script defer src="login.js"></script>
+    <title>Login | Crafty</title>
   </head>
-  <header>
-    <nav class="navbar navbar-expand-lg d-flex justify-content-between">
-      <a class="navbar-brand ms-2" href="index.html">Crafty</a>
-      <div>
-        <a class="navbar-brand menu-items ms-2" href="feed.html">Feed</a>
-        <a class="navbar-brand menu-items ms-2" href="profile.html">
-          Profile
-        </a>
-      </div>
-    </nav>
-  </header>
   <body>
-    <div class="container d-flex justify-content-center align-items-center">
-      <div class="card">
-        <h2 class="text-center mb-4">Crafty</h2>
-        <form action="/profile.html">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" required />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              minlength="8"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
-          <span class="form-text d-block text-center"
-            >Don't have an account? <a href="/profile.html">Register</a></span
-          >
-        </form>
+    <header>
+      <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+        <a class="navbar-brand ms-2" href="index.html">Crafty</a>
+        <div>
+          <a class="navbar-brand menu-items ms-2" href="feed.html">Feed</a>
+          <a class="navbar-brand menu-items ms-2" href="profile.html">
+            Profile
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="card">
+          <dialog id="data-modal">
+            <section id="loaded-html"></section>
+            <button id="data-close-modal">close</button>
+          </dialog>
+          <h1 class="text-center mb-4">LOGIN</h2>
+          <form>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                minlength="8"
+                required
+              />
+            </div>
+            <button id="form-button" type="submit" class="btn btn-primary btn-block">
+              Login
+            </button>
+            <span class="form-text d-block text-center"
+              >Don't have an account?
+              <a href="/register.html">Register</a></span
+            >
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>
