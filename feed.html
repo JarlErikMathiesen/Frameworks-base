@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <link href="dist/css/styles.css" rel="stylesheet" />
-    <script defer src="getWithToken.js"></script>
+    <script type="module" defer src="js/feed.js"></script>
     <title>Feed | Crafty</title>
   </head>
   <body>
@@ -63,104 +63,10 @@
             </div>
           </div>
         </div>
-        <div class="row m-4">
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/Electricianworking.jpg"
-                class="card-img-top"
-                alt="Post Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Help Wanted</h5>
-                <p class="card-text text-truncate">
-                  Looking for an electrician to help with a small project.
-                </p>
-                <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/CarpentermakerWorking.jpg"
-                class="card-img-top"
-                alt="Help Wanted Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Help Wanted</h5>
-                <p class="card-text text-truncate">
-                  Need a carpenter to build custom cabinets. Experience
-                  required.
-                </p>
-                <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/Worker6.jpg"
-                class="card-img-top"
-                alt="Looking for Work Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Looking for Work</h5>
-                <p class="card-text text-truncate">
-                  Certified electrician with 10 years of experience. Available
-                  for new projects.
-                </p>
-                <a href="#" class="btn btn-primary">Contact Me</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/Manonladder.jpg"
-                class="card-img-top"
-                alt="General Info Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">General Info</h5>
-                <p class="card-text text-truncate">Stay safe on the job!</p>
-                <a href="#" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/Drill.jpg"
-                class="card-img-top"
-                alt="Humor Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Humor</h5>
-                <p class="card-text text-truncate">
-                  When your drill battery dies right in the middle of the job...
-                </p>
-                <a href="#" class="btn btn-primary">Laugh With Us</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-3">
-            <div class="card card-post mb-4">
-              <img
-                src="images/Womanpowertool.jpg"
-                class="card-img-top"
-                alt="Discussions Thumbnail"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Discussions</h5>
-                <p class="card-text text-truncate">
-                  What's the best brand of tools for heavy-duty construction?
-                </p>
-                <a href="#" class="btn btn-primary">Join the Discussion</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div
+          id="loadedPosts"
+          class="row m-4 d-flex justify-content-center"
+        ></div>
         <div class="mt-4">
           <h4>Create a New Post</h4>
           <form>

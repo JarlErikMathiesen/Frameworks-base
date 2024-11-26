@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link href="dist/css/styles.css" rel="stylesheet" />
+    <script type="module" src="js/profile.js"></script>
     <title>Profile | Crafty</title>
   </head>
   <body>
@@ -119,69 +120,45 @@
               </div>
             </div>
           </div>
+          <div class="mt-4">
+            <h4>Create a New Post</h4>
+            <form>
+              <span class="form-group">
+                <label for="post-title">Title</label>
+                <input
+                  id="post-title"
+                  type="text"
+                  class="form-control"
+                  placeholder="Title"
+                  required
+                />
+              </span>
+              <label for="post-media">Add image</label>
+              <input
+                type="text"
+                id="post-media"
+                placeholder="add image Url"
+                name="upload"
+              />
+              <div class="form-group">
+                <label for="post-content">Content</label>
+                <input
+                  id="post-content"
+                  type="text"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Post content"
+                  required
+                >
+              </div>
+              <button id="post-button" type="submit" class="btn btn-primary">
+                Post
+              </button>
+            </form>
+          </div>
           <div>
             <h4>User's Posts</h4>
-            <div class="row">
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card card-user">
-                  <div class="card-body">
-                    <h5 class="card-title">Looking for New Projects</h5>
-                    <p class="card-text text-truncate">
-                      I’m currently available for new electrical projects in the
-                      Oslo area. Whether it’s a residential job, commercial
-                      wiring, or something more complex, I’m ready to get
-                      started. Let’s make your electrical systems safer and more
-                      efficient!
-                    </p>
-                    <a href="#" class="btn btn-primary">View</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card card-user">
-                  <div class="card-body">
-                    <h5 class="card-title">Wired a New Home!</h5>
-                    <p class="card-text text-truncate">
-                      Just finished wiring a brand new home in the Oslo area. It
-                      was a great project that involved installing
-                      energy-efficient lighting and smart home systems. Looking
-                      forward to more challenging projects like this!
-                    </p>
-                    <a href="#" class="btn btn-primary">View</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card card-user">
-                  <div class="card-body">
-                    <h5 class="card-title">Tips for Homeowners</h5>
-                    <p class="card-text text-truncate">
-                      Posted a quick guide on electrical safety tips for
-                      homeowners. Simple things like not overloading outlets can
-                      prevent major issues. Check it out if you want to keep
-                      your home safe!
-                    </p>
-                    <a href="#" class="btn btn-primary">View</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="card card-user">
-                  <div class="card-body">
-                    <h5 class="card-title">Understanding Circuit Breakers</h5>
-                    <p class="card-text text-truncate">
-                      Ever wonder why your circuit breaker trips? It’s usually a
-                      sign that something’s wrong, like an overloaded circuit or
-                      a short. If this happens often, it might be time for an
-                      inspection. Don’t hesitate to reach out if you need
-                      assistance!
-                    </p>
-                    <a href="#" class="btn btn-primary">View</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div id="loadedPosts" class="row m-4"></div>
           <div>
             <h4>Followers</h4>
             <div class="row">

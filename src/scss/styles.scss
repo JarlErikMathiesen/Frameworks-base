@@ -75,6 +75,15 @@ ul {
       object-fit: cover;
       border-radius: 8px;
     }
+
+    &-id {
+      max-width: fit-content;
+
+      img {
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
   }
 
   &-user {

@@ -1,9 +1,13 @@
-const API_BASE_URL = "https://api.noroff.dev";
-const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`;
+/* const API_BASE_URL = "https://api.noroff.dev"; */
+/* const loginUrl = `${API_BASE_URL}/api/v1/social/auth/login`; */
 
 const loadedHtml = document.querySelector("#loaded-html");
 const closeButton = document.querySelector("#data-close-modal");
 const modal = document.querySelector("#data-modal");
+
+const API_BASE_URL = "https://v2.api.noroff.dev";
+const API_LOGIN = "/login";
+const loginUrl = API_BASE_URL + API_LOGIN;
 
 async function loginUser(url, userData) {
   try {
@@ -11,6 +15,7 @@ async function loginUser(url, userData) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-Noroff-API-Key": API_KEY,
       },
       body: JSON.stringify(userData),
     };
@@ -53,8 +58,7 @@ formButton.onclick = function (event) {
   loginUser(loginUrl, userToLogin);
 };
 
-/* const userToRegister = {
-  name: "catzy_account_b",
+/* const userToLogin = {
   email: "dogzy-account-b@noroff.no",
   password: "your-password",
 }; */
