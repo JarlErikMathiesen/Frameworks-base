@@ -136,7 +136,7 @@ postButton.onclick = async function (event) {
     await postWithToken(postsUrl, data);
     console.log(postText);
     console.log(postTitle);
-    /* location.reload(); */
+    location.reload();
   } catch (error) {
     console.error("Error adding post:", error);
   }

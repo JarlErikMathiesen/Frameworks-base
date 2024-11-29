@@ -75,3 +75,17 @@ async function renderPosts() {
 }
 
 renderPosts();
+
+const searchBar = document.querySelector("#search-posts");
+
+searchBar.onkeyup = function () {
+  console.log(event);
+};
+
+async function APIposts() {
+  const json = await getWithToken(postsUrl);
+  console.log(json.data);
+  const posts = json.data;
+}
+
+APIposts();
