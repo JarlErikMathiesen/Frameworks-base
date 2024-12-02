@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://api.noroff.dev";
+import { registerUrl } from "/js/functions.js";
 
 // End-points:
 // Register: /api/v1/social/auth/register
@@ -35,14 +35,19 @@ formButton.onclick = function (event) {
     password: userPasswordValue,
   };
 
-  const registerUrl = `${API_BASE_URL}/api/v1/social/auth/register`;
   registerUser(registerUrl, userToRegister);
 };
 
+/* const userToLogin = {
+  name: "jarlerikmathiesen"
+  email: "jarmat49748@stud.noroff.no",
+  password: "gPT@6GZg:HHkMaC",
+}; */
+
 /* const userToRegister = {
-  name: "catzy_account_b",
-  email: "dogzy-account-b@noroff.no",
-  password: "your-password",
+  name: "testking4"
+  email: "kingoftests4@noroff.no",
+  password: "kingtest4",
 }; */
 
 //  ------------ Login User
@@ -75,7 +80,6 @@ async function registerUser(url, data) {
         window.location.href = "index.html";
       });
     } else {
-      console.log(json);
       json.errors.forEach((error) => {
         console.log(error.message);
         const appendedHtml = document.createElement("div");
@@ -93,3 +97,5 @@ async function registerUser(url, data) {
 closeButton.addEventListener("click", () => {
   modal.close();
 });
+
+registe;

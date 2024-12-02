@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <link href="dist/css/styles.css" rel="stylesheet" />
-    <script type="module" defer src="js/feed.js"></script>
+    <script type="module" src="js/feed.js"></script>
     <title>Feed | Crafty</title>
   </head>
   <body>
@@ -51,23 +51,31 @@
           </div>
           <div class="row">
             <div class="col-md-3 d-flex justify-content-center">
-              <div class="btn btn-primary btn-lg mt-4">Help wanted</div>
+              <div id="help" class="btn btn-primary btn-lg mt-4 filter-button">
+                Help wanted
+              </div>
             </div>
             <div class="col-md-3 d-flex justify-content-center">
-              <div class="btn btn-primary btn-lg mt-4">Looking for work</div>
+              <div id="work" class="btn btn-primary btn-lg mt-4 filter-button">
+                Looking for work
+              </div>
             </div>
             <div class="col-md-3 d-flex justify-content-center">
-              <div class="btn btn-primary btn-lg mt-4">General info</div>
+              <div id="info" class="btn btn-primary btn-lg mt-4 filter-button">
+                General info
+              </div>
             </div>
             <div class="col-md-3 d-flex justify-content-center">
-              <div class="btn btn-primary btn-lg mt-4">Humour</div>
+              <div
+                id="humour"
+                class="btn btn-primary btn-lg mt-4 filter-button"
+              >
+                Humour
+              </div>
             </div>
           </div>
         </div>
-        <div
-          id="loadedPosts"
-          class="row m-4 d-flex justify-content-center"
-        ></div>
+        <div id="loadedPosts"></div>
         <div class="mt-4">
           <h4>Create a New Post</h4>
           <form>
