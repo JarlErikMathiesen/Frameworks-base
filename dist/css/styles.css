@@ -11858,6 +11858,12 @@ body {
   gap: 15px;
 }
 
+.main-title {
+  font-family: "Krona One", sans-serif;
+  font-size: 35px;
+  color: #1904a0;
+}
+
 .navbar {
   background-color: #888787;
 }
@@ -11911,11 +11917,20 @@ ul {
 .card-post {
   min-height: 26em;
 }
-.card-post img {
+.card-post-img {
   height: 15em;
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
+}
+.card-post-avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 9px;
+  border-radius: 12px;
+}
+.card-post-name {
+  font-size: 15px;
 }
 .card-post-id {
   max-width: fit-content;

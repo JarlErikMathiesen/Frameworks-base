@@ -75,37 +75,70 @@
             </div>
           </div>
         </div>
-        <div id="loadedPosts"></div>
-        <div class="mt-4">
+        <div class="mt-4 mb-4 card">
           <h4>Create a New Post</h4>
           <form>
             <span class="form-group">
+              <label for="post-title">Title</label>
               <input
+                id="post-title"
                 type="text"
                 class="form-control"
                 placeholder="Title"
                 required
               />
             </span>
-            <label for="upload">upload media</label>
+            <label for="post-media">Add image</label>
             <input
-              type="file"
-              id="upload"
+              type="text"
+              id="post-media"
+              placeholder="add image Url"
               name="upload"
-              accept="image/png, image/jpeg"
             />
             <div class="form-group">
-              <textarea
+              <label for="post-content">Content</label>
+              <input
+                id="post-content"
+                type="text"
                 class="form-control"
                 rows="3"
                 placeholder="Post content"
                 required
-              ></textarea>
+              >
             </div>
-            <button type="submit" class="btn btn-primary">Post</button>
-          </form>
+            <div class="d-flex justify-content-between col-12">
+              <fieldset class="col-10">
+                <legend>Choose tag:</legend>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <input type="checkbox" id="tag-humour" name="humour"/>
+                    <label for="humour">Humour</label>
+                  </div>
+                
+                  <div>
+                    <input type="checkbox" id="tag-help" name="help" />
+                    <label for="help">Help</label>
+                  </div>
+
+                  <div>
+                    <input type="checkbox" id="tag-work" name="work" />
+                    <label for="work">Looking for work</label>
+                  </div>
+
+                  <div>
+                    <input type="checkbox" id="tag-info" name="info" />
+                    <label for="info">General Info</label>
+                  </div>
+                </div>
+              </fieldset>
+              
+                <button id="post-button" type="submit" class="btn btn-primary">
+                  Post
+                </button>
+              </div>
+            </form>
         </div>
-      </div>
+        <div id="loadedPosts"></div>
     </main>
   </body>
 </html>

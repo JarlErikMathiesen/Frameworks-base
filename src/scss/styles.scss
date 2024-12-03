@@ -15,6 +15,12 @@ body {
   gap: 15px;
 }
 
+.main-title {
+  font-family: "Krona One", sans-serif;
+  font-size: 35px;
+  color: map-get($colours, accent);
+}
+
 .navbar {
   background-color: map-get($colours, secondary);
 
@@ -75,11 +81,22 @@ ul {
   &-post {
     min-height: 26em;
 
-    img {
+    &-img {
       height: 15em;
       width: 100%;
       object-fit: cover;
       border-radius: 8px;
+    }
+
+    &-avatar {
+      width: 30px;
+      height: 30px;
+      margin-right: 9px;
+      border-radius: 12px;
+    }
+
+    &-name {
+      font-size: 15px;
     }
 
     &-id {

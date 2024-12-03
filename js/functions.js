@@ -4,23 +4,28 @@ const API_AUTH = "/auth";
 const API_REGISTER = "/register";
 const API_LOGIN = "/login";
 const API_SOCIAL = "/social/posts";
+const authorTrue = "?_author=true";
+const profileEndpoint = "/social/profiles";
 
+export const userToken = localStorage.getItem("userToken");
 export const token = localStorage.getItem("accessToken");
 export const htmlParent = document.querySelector("#loadedPosts");
 
 export const postsUrl = API_BASE_URL + API_SOCIAL;
+export const postsUrlAuthor = API_BASE_URL + API_SOCIAL + authorTrue;
 export const registerUrl = API_BASE_URL + API_AUTH + API_REGISTER;
 export const loginUrl = API_BASE_URL + API_AUTH + API_LOGIN;
 
+export const profileUrl = API_BASE_URL + profileEndpoint + "/" + userToken;
+export const profileUrlAuthor = profileUrl + "/posts";
+
 export function createHtml(posts) {
   posts.forEach((post) => {
-    const { id, title, body, media } = post;
+    const { id, title, body, author, media } = post;
 
+    let name = author?.name;
+    let avatarUrl = author?.avatar?.url;
     let postImage = media && media.url ? media.url : "images/noimage.webp";
-
-    /* const wrapperElement = document.createElement("div");
-    wrapperElement.classList.add("col-md-4", "col-lg-3");
-    htmlParent.appendChild(wrapperElement); */
 
     const cardElement = document.createElement("div");
     cardElement.classList.add("card", "card-post", "mb-4");
@@ -37,6 +42,22 @@ export function createHtml(posts) {
     const cardBodyElement = document.createElement("div");
     cardBodyElement.classList.add("card-body");
     cardElement.appendChild(cardBodyElement);
+
+    if (author) {
+      const spanUserElement = document.createElement("span");
+      spanUserElement.classList.add("d-flex");
+      cardBodyElement.appendChild(spanUserElement);
+
+      const avatarElement = document.createElement("img");
+      avatarElement.classList.add("card-post-avatar");
+      avatarElement.src = avatarUrl;
+      spanUserElement.appendChild(avatarElement);
+
+      const nameElement = document.createElement("h5");
+      nameElement.classList.add("card-post-name");
+      nameElement.innerText = `posted by ${name}`;
+      spanUserElement.appendChild(nameElement);
+    }
 
     const titleElement = document.createElement("h5");
     titleElement.classList.add("card-title");
@@ -88,8 +109,11 @@ export async function methodWithToken(postsUrl, fetchOptions) {
 }
 
 export function createPost(posts) {
-  const { id, title, body, media } = posts;
+  const { id, title, body, author, media } = posts;
   const postsUrlId = postsUrl + "/" + id;
+
+  let name = author?.name;
+  let avatarUrl = author?.avatar?.url;
 
   let postImage = media && media.url ? media.url : "images/noimage.webp";
 
@@ -110,6 +134,22 @@ export function createPost(posts) {
   cardBodyElement.classList.add("card-body");
   cardElement.appendChild(cardBodyElement);
 
+  if (author) {
+    const spanUserElement = document.createElement("span");
+    spanUserElement.classList.add("d-flex");
+    cardBodyElement.appendChild(spanUserElement);
+
+    const avatarElement = document.createElement("img");
+    avatarElement.classList.add("card-post-avatar");
+    avatarElement.src = avatarUrl;
+    spanUserElement.appendChild(avatarElement);
+
+    const nameElement = document.createElement("h5");
+    nameElement.classList.add("card-post-name");
+    nameElement.innerText = `posted by ${name}`;
+    spanUserElement.appendChild(nameElement);
+  }
+
   const titleElement = document.createElement("h5");
   titleElement.classList.add("card-title");
   titleElement.innerText = title;
@@ -120,44 +160,24 @@ export function createPost(posts) {
   textElement.innerText = body;
   cardBodyElement.appendChild(textElement);
 
-  const spanButtonElement = document.createElement("div");
-  spanButtonElement.classList.add("d-flex-column");
-  cardBodyElement.appendChild(spanButtonElement);
+  if (author.name === userToken) {
+    const spanButtonElement = document.createElement("div");
+    spanButtonElement.classList.add("d-flex-column");
+    cardBodyElement.appendChild(spanButtonElement);
 
-  const deleteButtonElement = document.createElement("btn");
-  deleteButtonElement.classList.add(
-    "btn",
-    "btn-primary",
-    "m-2",
-    "delete-button"
-  );
-  deleteButtonElement.innerText = "Delete post";
-  spanButtonElement.appendChild(deleteButtonElement);
+    const deleteButtonElement = document.createElement("btn");
+    deleteButtonElement.classList.add(
+      "btn",
+      "btn-primary",
+      "m-2",
+      "delete-button"
+    );
+    deleteButtonElement.innerText = "Delete post";
+    spanButtonElement.appendChild(deleteButtonElement);
 
-  deleteButtonElement.onclick = () => {
-    methodWithToken(postsUrlId, deleteOptions);
-  };
-}
-
-/* async function getAPIkey() {
-  const API_KEY_URL = "/create-api-key";
-  const response = await fetch(API_BASE_URL + API_AUTH + API_KEY_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      name: "Test key",
-    }),
-  });
-
-  if (response.ok) {
-    return await response.json();
+    deleteButtonElement.onclick = () => {
+      methodWithToken(postsUrlId, deleteOptions);
+      window.location.href = "feed.html";
+    };
   }
-  console.error(await response.json());
-
-  throw new Error("Could not register for an API key!");
-} */
-
-//getAPIkey();
+}

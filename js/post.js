@@ -20,7 +20,9 @@ async function renderPosts(url) {
   }
 }
 
-renderPosts(postsUrlId);
+const authorTrue = "?_author=true";
+const postsUrlIdAuthor = postsUrlId + authorTrue;
+renderPosts(postsUrlIdAuthor);
 
 const editButton = document.querySelector("#edit-button");
 
@@ -30,8 +32,8 @@ editButton.onclick = async function () {
   const postContent = document.querySelector("#post-content").value;
 
   let data = {
-    ...(postContent !== "" && { title: postContent }),
     ...(postTitle !== "" && { title: postTitle }),
+    ...(postContent !== "" && { body: postContent }),
     ...(postMedia !== "" && { media: { url: postMedia } }),
   };
 
@@ -41,7 +43,10 @@ editButton.onclick = async function () {
     body: JSON.stringify(data),
   };
 
-  methodWithToken(postsUrlId, putOptions);
+  try {
+    await methodWithToken(postsUrlId, putOptions);
+    location.reload();
+  } catch (error) {
+    console.error("Error editing post:", error);
+  }
 };
-
-createDeleteButton();

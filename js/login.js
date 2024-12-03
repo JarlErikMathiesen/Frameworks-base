@@ -21,10 +21,13 @@ async function loginUser(url, userData) {
 
     if (response.ok) {
       const accessToken = json.data.accessToken;
+      const userToken = json.data.name;
       localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("userToken", userToken);
       window.location.href = "profile.html";
       console.log(json);
       console.log(json.data.accessToken);
+      console.log(json.data.name);
     } else {
       console.log(json);
       json.errors.forEach((error) => {
@@ -59,18 +62,3 @@ formButton.onclick = function (event) {
 closeButton.addEventListener("click", () => {
   modal.close();
 });
-
-/* const userToLogin = {
-  email: "jarmat49748@stud.noroff.no",
-  password: "gPT@6GZg:HHkMaC",
-}; */
-
-/* const userToLogin = {
-  email: "testpost@noroff.no",
-  password: "testtest",
-}; */
-
-/* const userToLogin = {
-  email: "dogzy-account-b@noroff.no",
-  password: "your-password",
-}; */

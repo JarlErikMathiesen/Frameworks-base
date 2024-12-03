@@ -38,18 +38,6 @@ formButton.onclick = function (event) {
   registerUser(registerUrl, userToRegister);
 };
 
-/* const userToLogin = {
-  name: "jarlerikmathiesen"
-  email: "jarmat49748@stud.noroff.no",
-  password: "gPT@6GZg:HHkMaC",
-}; */
-
-/* const userToRegister = {
-  name: "testking4"
-  email: "kingoftests4@noroff.no",
-  password: "kingtest4",
-}; */
-
 //  ------------ Login User
 
 async function registerUser(url, data) {
@@ -97,5 +85,3 @@ async function registerUser(url, data) {
 closeButton.addEventListener("click", () => {
   modal.close();
 });
-
-registe;
