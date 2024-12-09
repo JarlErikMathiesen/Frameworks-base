@@ -11931,6 +11931,7 @@ ul {
 }
 .card-post-name {
   font-size: 15px;
+  align-self: end;
 }
 .card-post-id {
   max-width: fit-content;

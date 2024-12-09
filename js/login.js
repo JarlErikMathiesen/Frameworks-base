@@ -24,10 +24,10 @@ async function loginUser(url, userData) {
       const userToken = json.data.name;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("userToken", userToken);
-      window.location.href = "profile.html";
       console.log(json);
       console.log(json.data.accessToken);
       console.log(json.data.name);
+      window.location.href = "profile.html";
     } else {
       console.log(json);
       json.errors.forEach((error) => {

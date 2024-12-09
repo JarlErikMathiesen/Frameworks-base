@@ -88,16 +88,25 @@ export const fetchHeader = {
   "X-Noroff-API-Key": API_KEY,
 };
 
-const deleteOptions = {
-  method: "DELETE",
-  headers: fetchHeader,
-};
-
 export const getOptions = {
   method: "GET",
   headers: fetchHeader,
 };
 
+const deleteOptions = {
+  method: "DELETE",
+  headers: fetchHeader,
+};
+
+/**
+ * Function that uses the fetch method with a token attached to the
+ * fetchoptions and sends different HTTP-requests depending on the argument
+ *
+ *
+ * @param {string} postsUrl The url for the fetch request
+ * @param {object} fetchOptions The HTTP-method and header with the token and API-key
+ * @returns
+ */
 export async function methodWithToken(postsUrl, fetchOptions) {
   try {
     const response = await fetch(postsUrl, fetchOptions);
@@ -178,6 +187,94 @@ export function createPost(posts) {
     deleteButtonElement.onclick = () => {
       methodWithToken(postsUrlId, deleteOptions);
       window.location.href = "feed.html";
+    };
+
+    const editWrapper = document.createElement("div");
+    editWrapper.classList.add("card");
+    cardBodyElement.appendChild(editWrapper);
+
+    const editFormHeader = document.createElement("h4");
+    editFormHeader.innerText = "Edit post";
+    editWrapper.appendChild(editFormHeader);
+
+    const titleGroup = document.createElement("span");
+    titleGroup.classList.add("form-group");
+
+    const titleLabel = document.createElement("label");
+    titleLabel.setAttribute("for", "post-title");
+    titleLabel.innerText = "Title";
+
+    const titleInput = document.createElement("input");
+    titleInput.setAttribute("id", "post-title");
+    titleInput.setAttribute("type", "text");
+    titleInput.setAttribute("placeholder", "Title");
+    titleInput.classList.add("form-control");
+
+    titleGroup.appendChild(titleLabel);
+    titleGroup.appendChild(titleInput);
+    editWrapper.appendChild(titleGroup);
+
+    const mediaLabel = document.createElement("label");
+    mediaLabel.setAttribute("for", "post-media");
+    mediaLabel.innerText = "Add image";
+
+    const mediaInput = document.createElement("input");
+    mediaInput.setAttribute("id", "post-media");
+    mediaInput.setAttribute("type", "text");
+    mediaInput.setAttribute("placeholder", "Add image URL");
+    mediaInput.setAttribute("name", "upload");
+
+    editWrapper.appendChild(mediaLabel);
+    editWrapper.appendChild(mediaInput);
+
+    const contentGroup = document.createElement("div");
+    contentGroup.classList.add("form-group");
+
+    const contentLabel = document.createElement("label");
+    contentLabel.setAttribute("for", "post-content");
+    contentLabel.innerText = "Content";
+
+    const contentInput = document.createElement("input");
+    contentInput.setAttribute("id", "post-content");
+    contentInput.setAttribute("type", "text");
+    contentInput.setAttribute("placeholder", "Post content");
+    contentInput.classList.add("form-control");
+
+    const editButton = document.createElement("button");
+    editButton.setAttribute("id", "edit-button");
+    editButton.setAttribute("type", "submit");
+    editButton.classList.add("btn", "btn-primary", "mt-2");
+    editButton.innerText = "Edit";
+
+    contentGroup.appendChild(contentLabel);
+    contentGroup.appendChild(contentInput);
+    contentGroup.appendChild(editButton);
+
+    editWrapper.appendChild(contentGroup);
+
+    editButton.onclick = async function () {
+      const postTitle = document.querySelector("#post-title").value;
+      const postMedia = document.querySelector("#post-media").value;
+      const postContent = document.querySelector("#post-content").value;
+
+      let data = {
+        ...(postTitle !== "" && { title: postTitle }),
+        ...(postContent !== "" && { body: postContent }),
+        ...(postMedia !== "" && { media: { url: postMedia } }),
+      };
+
+      const putOptions = {
+        method: "PUT",
+        headers: fetchHeader,
+        body: JSON.stringify(data),
+      };
+
+      try {
+        await methodWithToken(postsUrlId, putOptions);
+        location.reload();
+      } catch (error) {
+        console.error("Error editing post:", error);
+      }
     };
   }
 }
