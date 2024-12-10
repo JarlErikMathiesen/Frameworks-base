@@ -13,3 +13,7 @@ During development
 ```bash
 npm run watch
 ```
+
+## Planning
+
+I have planned the project in trello. Here is the link: https://trello.com/b/DmC8iTlc/js2-course-assignment
