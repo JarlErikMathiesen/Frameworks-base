@@ -23,8 +23,6 @@ async function getWithToken(url) {
 
 const postsUrl = `${API_BASE_URL}/api/v1/social/posts`;
 
-/* getWithToken(postsUrl); */
-
 async function deleteWithToken(postId) {
   try {
     const postsUrl = `${API_BASE_URL}/api/v1/social/posts/${postId}`;
