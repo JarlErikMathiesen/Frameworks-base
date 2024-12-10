@@ -184,9 +184,13 @@ export function createPost(posts) {
     deleteButtonElement.innerText = "Delete post";
     spanButtonElement.appendChild(deleteButtonElement);
 
-    deleteButtonElement.onclick = () => {
-      methodWithToken(postsUrlId, deleteOptions);
-      window.location.href = "feed.html";
+    deleteButtonElement.onclick = async () => {
+      try {
+        await methodWithToken(postsUrlId, deleteOptions);
+        window.location.href = "feed.html";
+      } catch (error) {
+        console.error("Failed to delete the post:", error);
+      }
     };
 
     const editWrapper = document.createElement("div");

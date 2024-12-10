@@ -1,8 +1,6 @@
 import { methodWithToken } from "/js/functions.js";
-import { postsUrl } from "/js/functions.js";
 import { createHtml } from "/js/functions.js";
 import { getOptions } from "/js/functions.js";
-import { postsUrlAuthor } from "/js/functions.js";
 import { profileUrl } from "/js/functions.js";
 import { userToken } from "/js/functions.js";
 import { profileUrlAuthor } from "/js/functions.js";

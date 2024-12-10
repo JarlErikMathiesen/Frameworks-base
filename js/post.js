@@ -22,9 +22,10 @@ async function renderPosts(url) {
 
 const authorTrue = "?_author=true";
 const postsUrlIdAuthor = postsUrlId + authorTrue;
+
 renderPosts(postsUrlIdAuthor);
 
-const editButton = document.querySelector("#edit-button");
+/* const editButton = document.querySelector("#edit-button");
 
 editButton.onclick = async function () {
   const postTitle = document.querySelector("#post-title").value;
@@ -49,4 +50,4 @@ editButton.onclick = async function () {
   } catch (error) {
     console.error("Error editing post:", error);
   }
-};
+}; */
