@@ -49,36 +49,36 @@
               placeholder="Search posts..."
             />
           </div>
-          <div class="row">
-            <div class="col-md-3 d-flex justify-content-center">
-              <div id="help" class="btn btn-primary btn-lg mt-4 filter-button">
-                Help wanted
-              </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center">
-              <div id="work" class="btn btn-primary btn-lg mt-4 filter-button">
-                Looking for work
-              </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center">
-              <div id="info" class="btn btn-primary btn-lg mt-4 filter-button">
-                General info
-              </div>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center">
-              <div
-                id="humour"
-                class="btn btn-primary btn-lg mt-4 filter-button"
-              >
-                Humour
-              </div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 d-flex justify-content-center">
+            <button id="help" class="btn btn-primary btn-lg mt-4 filter-button">
+              Help wanted
+            </button>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <button id="work" class="btn btn-primary btn-lg mt-4 filter-button">
+              Looking for work
+            </button>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <button id="info" class="btn btn-primary btn-lg mt-4 filter-button">
+              General info
+            </button>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center">
+            <button
+              id="humour"
+              class="btn btn-primary btn-lg mt-4 filter-button"
+            >
+              Humour
+            </button>
           </div>
         </div>
-        <div class="mt-4 mb-4 card">
+        <div class="mt-4 mb-4 card p-4">
           <h4>Create a New Post</h4>
           <form>
-            <span class="form-group">
+            <div class="form-group mb-3">
               <label for="post-title">Title</label>
               <input
                 id="post-title"
@@ -87,15 +87,18 @@
                 placeholder="Title"
                 required
               />
-            </span>
-            <label for="post-media">Add image</label>
-            <input
-              type="text"
-              id="post-media"
-              placeholder="add image Url"
-              name="upload"
-            />
-            <div class="form-group">
+            </div>
+            <div class="form-group mb-3">
+              <label for="post-media">Add Image</label>
+              <input
+                id="post-media"
+                type="text"
+                class="form-control"
+                placeholder="Add image URL"
+                name="upload"
+              />
+            </div>
+            <div class="form-group mb-3">
               <label for="post-content">Content</label>
               <input
                 id="post-content"
@@ -103,41 +106,38 @@
                 class="form-control"
                 placeholder="Post content"
                 required
-              >
+              />
             </div>
-            <div class="d-flex justify-content-between col-12">
-              <fieldset class="col-10">
-                <legend>Choose tag:</legend>
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <input type="checkbox" id="tag-humour" name="humour"/>
-                    <label for="tag-humour">Humour</label>
-                  </div>
-                
-                  <div>
-                    <input type="checkbox" id="tag-help" name="help" />
-                    <label for="tag-help">Help</label>
-                  </div>
-
-                  <div>
-                    <input type="checkbox" id="tag-work" name="work" />
-                    <label for="tag-work">Looking for work</label>
-                  </div>
-
-                  <div>
-                    <input type="checkbox" id="tag-info" name="info" />
-                    <label for="tag-info">General Info</label>
-                  </div>
+            <fieldset class="mb-3">
+              <legend>Choose Tag:</legend>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="checkbox" id="tag-humour" name="humour" />
+                  <label for="tag-humour">Humour</label>
                 </div>
-              </fieldset>
-              
-                <button id="post-button" type="submit" class="btn btn-primary">
-                  Post
-                </button>
+                <div>
+                  <input type="checkbox" id="tag-help" name="help" />
+                  <label for="tag-help">Help</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tag-work" name="work" />
+                  <label for="tag-work">Looking for work</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tag-info" name="info" />
+                  <label for="tag-info">General Info</label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="d-flex justify-content-end">
+              <button id="post-button" type="submit" class="btn btn-primary">
+                Post
+              </button>
             </div>
           </form>
         </div>
         <div id="loadedPosts"></div>
+      </div>
     </main>
   </body>
 </html>
