@@ -21,7 +21,8 @@ async function renderPosts() {
 renderPosts();
 
 async function searchPosts() {
-  const json = await methodWithToken(postsUrl, getOptions);
+  const json = await methodWithToken(postsUrlAuthor, getOptions);
+
   const searchBar = document.querySelector("#search-posts");
 
   const posts = json.data;
@@ -42,7 +43,7 @@ async function searchPosts() {
 searchPosts();
 
 async function filterPosts() {
-  const json = await methodWithToken(postsUrl, getOptions);
+  const json = await methodWithToken(postsUrlAuthor, getOptions);
   const posts = json.data;
 
   const filterButton = document.querySelectorAll(".filter-button");
