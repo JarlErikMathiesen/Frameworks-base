@@ -9,6 +9,18 @@ body {
   background-size: cover;
 }
 
+#loadedPosts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.main-title {
+  font-family: "Krona One", sans-serif;
+  font-size: 35px;
+  color: map-get($colours, accent);
+}
+
 .navbar {
   background-color: map-get($colours, secondary);
 
@@ -25,12 +37,17 @@ body {
   &-brand-text {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
+    color: map-get($colours, accent);
   }
 }
 
 .menu-items {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
+
+  &-active {
+    text-decoration: underline;
+  }
 }
 
 .profile-img {
@@ -63,6 +80,34 @@ ul {
 
   &-post {
     min-height: 26em;
+
+    &-img {
+      height: 15em;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    &-avatar {
+      width: 30px;
+      height: 30px;
+      margin-right: 9px;
+      border-radius: 12px;
+    }
+
+    &-name {
+      font-size: 15px;
+      align-self: end;
+    }
+
+    &-id {
+      max-width: fit-content;
+
+      img {
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
   }
 
   &-user {
@@ -153,4 +198,17 @@ textarea {
 .badge-pill {
   border-radius: 50px;
   padding: 0.5rem 1rem;
+}
+
+@media (min-width: 450px) {
+  #loadedPosts {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  #loadedPosts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

@@ -18,170 +18,126 @@
       rel="stylesheet"
     />
     <link href="dist/css/styles.css" rel="stylesheet" />
-    <title>Crafty-feed</title>
+    <script type="module" src="js/feed.js"></script>
+    <title>Feed | Crafty</title>
   </head>
-  <header>
-    <nav class="navbar navbar-expand-lg d-flex justify-content-between">
-      <a class="navbar-brand ms-2" href="index.html">Crafty</a>
-      <div>
-        <a class="navbar-brand menu-items ms-2" href="feed.html">Feed</a>
-        <a class="navbar-brand menu-items ms-2" href="profile.html">
-          Profile
-        </a>
-      </div>
-    </nav>
-  </header>
   <body>
-    <div class="container mt-4">
-      <div class="row m-4">
-        <div class="col-md-12">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search posts..."
-          />
+    <header>
+      <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+        <a class="navbar-brand ms-2" href="index.html">Crafty</a>
+        <div>
+          <a
+            class="navbar-brand menu-items menu-items-active ms-2"
+            href="feed.html"
+            >Feed</a
+          >
+          <a class="navbar-brand menu-items ms-2" href="profile.html">
+            Profile
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1 class="d-flex justify-content-center">FEED</h1>
+      <div class="container mt-4">
+        <div class="row m-4">
+          <div class="col-md-12">
+            <input
+              id="search-posts"
+              type="text"
+              class="form-control"
+              placeholder="Search posts..."
+            />
+          </div>
         </div>
         <div class="row">
           <div class="col-md-3 d-flex justify-content-center">
-            <div class="btn btn-primary btn-lg mt-4">Help wanted</div>
+            <button id="help" class="btn btn-primary btn-lg mt-4 filter-button">
+              Help wanted
+            </button>
           </div>
           <div class="col-md-3 d-flex justify-content-center">
-            <div class="btn btn-primary btn-lg mt-4">Looking for work</div>
+            <button id="work" class="btn btn-primary btn-lg mt-4 filter-button">
+              Looking for work
+            </button>
           </div>
           <div class="col-md-3 d-flex justify-content-center">
-            <div class="btn btn-primary btn-lg mt-4">General info</div>
+            <button id="info" class="btn btn-primary btn-lg mt-4 filter-button">
+              General info
+            </button>
           </div>
           <div class="col-md-3 d-flex justify-content-center">
-            <div class="btn btn-primary btn-lg mt-4">Humour</div>
+            <button
+              id="humour"
+              class="btn btn-primary btn-lg mt-4 filter-button"
+            >
+              Humour
+            </button>
           </div>
         </div>
+        <div class="mt-4 mb-4 card p-4">
+          <h4>Create a New Post</h4>
+          <form>
+            <div class="form-group mb-3">
+              <label for="post-title">Title</label>
+              <input
+                id="post-title"
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div class="form-group mb-3">
+              <label for="post-media">Add Image</label>
+              <input
+                id="post-media"
+                type="text"
+                class="form-control"
+                placeholder="Add image URL"
+                name="upload"
+              />
+            </div>
+            <div class="form-group mb-3">
+              <label for="post-content">Content</label>
+              <input
+                id="post-content"
+                type="text"
+                class="form-control"
+                placeholder="Post content"
+                required
+              />
+            </div>
+            <fieldset class="mb-3">
+              <legend>Choose Tag:</legend>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="checkbox" id="tag-humour" name="humour" />
+                  <label for="tag-humour">Humour</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tag-help" name="help" />
+                  <label for="tag-help">Help wanted</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tag-work" name="work" />
+                  <label for="tag-work">Looking for work</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="tag-info" name="info" />
+                  <label for="tag-info">General Info</label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="d-flex justify-content-end">
+              <button id="post-button" type="submit" class="btn btn-primary">
+                Post
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="loadedPosts"></div>
       </div>
-      <div class="row m-4">
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/Electricianworking.jpg"
-              class="card-img-top"
-              alt="Post Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Help Wanted</h5>
-              <p class="card-text text-truncate">
-                Looking for an electrician to help with a small project.
-              </p>
-              <a href="#" class="btn btn-primary">View Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/CarpentermakerWorking.jpg"
-              class="card-img-top"
-              alt="Help Wanted Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Help Wanted</h5>
-              <p class="card-text text-truncate">
-                Need a carpenter to build custom cabinets. Experience required.
-              </p>
-              <a href="#" class="btn btn-primary">View Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/Worker6.jpg"
-              class="card-img-top"
-              alt="Looking for Work Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Looking for Work</h5>
-              <p class="card-text text-truncate">
-                Certified electrician with 10 years of experience. Available for
-                new projects.
-              </p>
-              <a href="#" class="btn btn-primary">Contact Me</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/Manonladder.jpg"
-              class="card-img-top"
-              alt="General Info Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">General Info</h5>
-              <p class="card-text text-truncate">Stay safe on the job!</p>
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/Drill.jpg"
-              class="card-img-top"
-              alt="Humor Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Humor</h5>
-              <p class="card-text text-truncate">
-                When your drill battery dies right in the middle of the job...
-              </p>
-              <a href="#" class="btn btn-primary">Laugh With Us</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-3">
-          <div class="card card-post mb-4">
-            <img
-              src="images/Womanpowertool.jpg"
-              class="card-img-top"
-              alt="Discussions Thumbnail"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Discussions</h5>
-              <p class="card-text text-truncate">
-                What's the best brand of tools for heavy-duty construction?
-              </p>
-              <a href="#" class="btn btn-primary">Join the Discussion</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mt-4">
-        <h4>Create a New Post</h4>
-        <form>
-          <span class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Title"
-              required
-            />
-          </span>
-          <label for="upload">upload media</label>
-          <input
-            type="file"
-            id="upload"
-            name="upload"
-            accept="image/png, image/jpeg"
-          />
-          <div class="form-group">
-            <textarea
-              class="form-control"
-              rows="3"
-              placeholder="Post content"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Post</button>
-        </form>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
