@@ -11,7 +11,6 @@ async function renderPosts() {
   try {
     const json = await methodWithToken(postsUrlAuthor, getOptions);
     const posts = json.data;
-    console.log(posts);
     createHtml(posts);
   } catch (error) {
     console.log(error);

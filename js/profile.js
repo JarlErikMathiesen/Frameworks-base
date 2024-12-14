@@ -5,7 +5,6 @@ import { profileUrl } from "/js/functions.js";
 import { userToken } from "/js/functions.js";
 import { profileUrlAuthor } from "/js/functions.js";
 
-console.log(profileUrl);
 const loadProfile = document.querySelector("#load-profile");
 
 function createProfile(profile) {
@@ -68,22 +67,16 @@ async function renderProfile() {
     const json = await methodWithToken(profileUrl, getOptions);
     const posts = json.data;
 
-    console.log(posts);
-    console.log(userToken);
-
     createProfile(posts);
   } catch (error) {
     console.log(error);
   }
 }
 
-console.log(profileUrlAuthor);
-
 async function renderProfilePosts() {
   try {
     const json = await methodWithToken(profileUrlAuthor, getOptions);
     const posts = json.data;
-    console.log(posts);
 
     createHtml(posts);
   } catch (error) {
